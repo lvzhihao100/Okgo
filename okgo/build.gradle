@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+// 发布到本地库 ----begin-----------------------------------------
+apply plugin: 'maven'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:///home/lv/.m2/repository/")
+            pom.groupId = "com.sskj"
+            pom.artifactId = "okgo"
+            pom.version = "1.0"
+        }
+    }
+}
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.libMinSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName_okgo
+    }
+}
+
+dependencies {
+    api 'com.squareup.okhttp3:okhttp:3.8.1'
+}
+
+//apply from: 'bintray.gradle'
