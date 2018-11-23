@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    api 'com.sskj:okgo:1.0'
+    api project(':okgo')
 }
 
 //apply from: 'bintray.gradle'
